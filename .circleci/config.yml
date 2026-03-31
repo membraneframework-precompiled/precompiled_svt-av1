@@ -2,9 +2,23 @@ version: 2.1
 orbs:
   elixir: membraneframework/elixir@1.5.7
 
+executors:
+  macos_arm_executor:
+    macos:
+      xcode: 16.4.0
+    resource_class: m4pro.medium
+
+jobs:
+  aaa:
+    executor: macos_arm_executor
+
+    steps:
+      - checkout
+
 workflows:
   precompile:
     jobs:
+      - aaa
       - elixir/precompile_for_macos_arm: &parameters
           package-name: svt-av1
           expected-version: << pipeline.git.tag >>
