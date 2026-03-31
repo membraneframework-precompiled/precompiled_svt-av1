@@ -6,7 +6,7 @@ workflows:
   precompile:
     jobs:
       - elixir/precompile_for_macos_arm: &parameters
-          package-name: PACKAGE_NAME_HERE
+          package-name: svt-av1
           expected-version: << pipeline.git.tag >>
           filters:
             branches:
